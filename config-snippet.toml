@@ -1,0 +1,23 @@
+# 把这段抄进 ~/.codex/config.toml
+# 必须替换的三处：node 路径、桥脚本路径、WB 命令行路径
+# 改完完全退出并重启 Codex，MCP 才会加载
+
+[mcp_servers.workbuddy]
+enabled = true
+command = "/opt/homebrew/bin/node"
+args = ["/Users/你的用户名/mcp-servers/workbuddy-bridge/server.mjs"]
+startup_timeout_sec = 30.0
+tool_timeout_sec = 1860.0
+
+[mcp_servers.workbuddy.env]
+# 在终端跑一次这个命令完成扫码登录，否则调用会零输出挂住
+WORKBUDDY_CLI = "/Users/你的用户名/.local/bin/wb-codebuddy"
+# 默认模型：先用免费的 hy3。deepseek-v4.1-flash 有静默挂死的历史记录，别设默认。
+WORKBUDDY_MODEL = "hy3"
+WORKBUDDY_TIMEOUT_MS = "1800000"
+
+# 可选：如果任务目录不是 git 仓库，需要把目录设为受信，否则会报
+# "Not inside a trusted directory"
+#
+# [projects."/Users/你的用户名/你的项目"]
+# trust_level = "trusted"
