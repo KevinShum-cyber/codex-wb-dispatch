@@ -12,7 +12,7 @@ tool_timeout_sec = 1860.0
 [mcp_servers.workbuddy.env]
 # 在终端跑一次这个命令完成扫码登录，否则调用会零输出挂住
 WORKBUDDY_CLI = "/Users/你的用户名/.local/bin/wb-codebuddy"
-# 默认模型：先用免费的 hy3。deepseek-v4.1-flash 有静默挂死的历史记录，别设默认。
+# 默认模型：先用免费的 hy3（机械结构化任务够用，且全天免费）
 WORKBUDDY_MODEL = "hy3"
 WORKBUDDY_TIMEOUT_MS = "1800000"
 

@@ -24,9 +24,10 @@ const SERVER_NAME = 'workbuddy-bridge';
 const SERVER_VERSION = '1.0.1';
 
 const DEFAULT_CLI = '/Applications/WorkBuddy.app/Contents/Resources/app.asar.unpacked/cli/bin/codebuddy';
-// 注意：deepseek-v4.1-flash 在模型清单里，但调用会无声挂死（2026-09-15 两次实测，
-// 均超过 150s 无任何输出、不报错）。不要把它设回默认。实测可用：glm-5.3-flash（快）、
-// glm-5.3、deepseek-v4-pro、hy3。
+// 模型可用性（2026-09-29 更新）：deepseek-v4.1-flash 曾经会无声挂死（2026-09-15 两次实测，
+// 均超过 150s 无任何输出、不报错），**该问题已修复，可正常使用**。
+// 默认仍用 hy3（全天免费）；实测可用：glm-5.3-flash（快）、glm-5.3、deepseek-v4-pro、
+// deepseek-v4.1-flash、hy3。
 const DEFAULT_MODEL = process.env.WORKBUDDY_MODEL || 'hy3';
 const DEFAULT_TIMEOUT_MS = Number(process.env.WORKBUDDY_TIMEOUT_MS || 1800000);
 // 体检必须在调用方放弃之前返回，否则调用方只会看到「超时」，
